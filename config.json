@@ -1,0 +1,14 @@
+{
+    "Baidu":
+    {
+        "appid":"baidu_appid",
+        "secret":"baidu_secret"
+    },
+
+    "Youdao":
+    {
+        "appid":"youdao_appid",
+        "secret":"youdao_secret"
+    }
+
+}
