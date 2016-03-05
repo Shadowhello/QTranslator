@@ -2,11 +2,11 @@ TEMPLATE = app
 
 QT += qml quick widgets
 
-SOURCES += main.cpp \
-    BaiduTranslator.cpp \
-    Translator.cpp \
-    Utils.cpp \
-    YoudaoTranslator.cpp
+SOURCES += src/main.cpp \
+    src/BaiduTranslator.cpp \
+    src/Translator.cpp \
+    src/Utils.cpp \
+    src/YoudaoTranslator.cpp
 
 RESOURCES += qml.qrc
 
@@ -17,10 +17,10 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-    BaiduTranslator.h \
-    Translator.h \
-    Utils.h \
-    YoudaoTranslator.h
+    src/BaiduTranslator.h \
+    src/Translator.h \
+    src/Utils.h \
+    src/YoudaoTranslator.h
 
 linux {
 LIBS += -lssl -lcrypto -lcurl -ljsoncpp -lboost_system -lboost_thread

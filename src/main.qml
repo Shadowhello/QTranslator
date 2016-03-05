@@ -8,7 +8,7 @@ import Trans 1.0
 
 ApplicationWindow {
     id: root
-    title: qsTr("Translator!!")
+    title: qsTr("QTranslator")
     width: 640
     height: 480
     visible: true

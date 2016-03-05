@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<BaiduTranslator>("Trans", 1, 0, "BaiduTranslator");
     qmlRegisterType<YoudaoTranslator>("Trans", 1, 0, "YoudaoTranslator");
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/src/main.qml")));
 
     return app.exec();
 }
