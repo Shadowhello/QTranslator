@@ -53,15 +53,16 @@ $ make
 
 # Demo
 
-## Windows 7 32bit
-
-![win7-1](images/win7_effect.png)
-
-![win7-2](images/win7_noeffect.png)
-
 ## Debian 64bit
 
 ![debian-1](images/debian.png)
+
+
+## Windows 7 32bit
+
+![win7-1](images/win7_noeffect.png)
+
+![win7-2](images/win7_effect.png)
 
 
 
