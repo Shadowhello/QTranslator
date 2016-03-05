@@ -60,6 +60,7 @@ ApplicationWindow {
                 onCurrentIndexChanged: {
                     console.log("Site is " + siteLists.get(currentIndex).text);
                     if(currentIndex==0) {
+                        //which one is better?
                         transFrom.model = Qt.binding(function() {return baiduFromLists});
                         transTo.model = baiduToLists;
                     }else if(currentIndex==1) {

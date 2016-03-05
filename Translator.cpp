@@ -8,6 +8,11 @@
 #include <cstdlib>
 #include <fstream>
 #include <sstream>
+#include <errno.h>
+#ifdef WIN32
+#include <Windows.h>
+#endif
+#include <boost/filesystem.hpp>
 
 Translator::Translator(QObject *parent):
         QObject(parent),
@@ -128,8 +133,24 @@ void Translator::updateSalt()
 int Translator::getAuth(std::string siteName)
 {
     bool ret;
+    std::string stringPath;
     std::ifstream inputFs;
-    inputFs.open("config.json");
+#ifdef WIN32
+    HMODULE module = GetModuleHandleW(NULL);
+    WCHAR path[MAX_PATH];
+    GetModuleFileNameW(module, path, MAX_PATH);
+    std::wstring ws(path);
+    boost::filesystem::path fsPath(std::string(ws.begin(), ws.end()));
+    stringPath = fsPath.parent_path().string();
+#else
+    stringPath = std::string(".");
+#endif
+    std::cout << "path is\n" << stringPath << std::endl;
+    inputFs.open(stringPath + std::string("/config.json"));
+    if(!inputFs.is_open()) {
+        std::cerr << "open config file error: " << strerror(errno) << std::endl;
+        return 1;
+    }
     std::string content;
     std::stringstream ss;
     ss << inputFs.rdbuf();

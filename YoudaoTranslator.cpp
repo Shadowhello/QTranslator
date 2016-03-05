@@ -76,10 +76,10 @@ void YoudaoTranslator::parseResult(std::string json)
     }
     std::string output = youdaoSS.str();
 #ifdef WIN32
-    output = Utils::UTF8ToGBK(output);
+    //No need for GUI
+    //output = Utils::UTF8ToGBK(output);
 #endif
     _result =  output;
-    std::cout << _result << std::endl;
     emit resultChanged();
 }
 std::string YoudaoTranslator::updateRequet()

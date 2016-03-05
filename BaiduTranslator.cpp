@@ -59,7 +59,8 @@ void BaiduTranslator::parseResult(std::string json)
         for(i=0; i<_value["trans_result"].size(); i++) {
             dst = _value["trans_result"][i]["dst"].asString();
 #ifdef WIN32
-            dst = Utils::UTF8ToGBK(dst);
+            //No need for GUI
+            //dst = Utils::UTF8ToGBK(dst);
 #endif
             baiduSS << dst << "\n";
         }
