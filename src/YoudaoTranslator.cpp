@@ -35,6 +35,11 @@ void YoudaoTranslator::parseResult(std::string json)
     }
     std::stringstream youdaoSS;
     unsigned int i,j;
+    int error_code = _value["errorCode"].asInt();
+    if(error_code != 0)
+    {
+        youdaoSS << "Error!\nError code:" << error_code << "\n";
+    }
     if(_value.isMember("basic"))
     {
         std::string basic;
@@ -42,13 +47,13 @@ void YoudaoTranslator::parseResult(std::string json)
         {
             basic += _value["basic"]["explains"][i].asString();
         }
-        youdaoSS << "Basic result:\n" << basic << "\n\n";
+        youdaoSS << "[Basic]:\n" << basic << "\n\n";
 
     }
     if(_value.isMember("translation"))
     {
         std::string sentence;
-        youdaoSS << "Sentence result:\n";
+        youdaoSS << "[Translate]:\n";
         for(i=0; i<_value["translation"].size(); i++) {
 
             sentence = _value["translation"][i].asString();
@@ -59,7 +64,7 @@ void YoudaoTranslator::parseResult(std::string json)
     if(_value.isMember("web"))
     {
         std::string web_key, web_value;
-        youdaoSS << "Web result:\n";
+        youdaoSS << "[Web]:\n";
         for(i=0; i<_value["web"].size(); i++)
         {
             web_key = _value["web"][i]["key"].asString();

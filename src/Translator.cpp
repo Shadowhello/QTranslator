@@ -146,7 +146,8 @@ int Translator::getAuth(std::string siteName)
     stringPath = std::string(".");
 #endif
     std::cout << "path is\n" << stringPath << std::endl;
-    inputFs.open(stringPath + std::string("/config.json"));
+    std::string configFile = stringPath + std::string("/config.json");
+    inputFs.open(configFile.c_str());
     if(!inputFs.is_open()) {
         std::cerr << "open config file error: " << strerror(errno) << std::endl;
         return 1;

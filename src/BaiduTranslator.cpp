@@ -54,8 +54,8 @@ void BaiduTranslator::parseResult(std::string json)
         unsigned int i = 0;
         std::string from = _value["from"].asString();
         std::string dst;
-        baiduSS << "Source language : " << from << "\n";
-        baiduSS << "Translate result:\n" << dst;
+        baiduSS << "[Source]: " << from << "\n";
+        baiduSS << "[Translate]:\n" << dst;
         for(i=0; i<_value["trans_result"].size(); i++) {
             dst = _value["trans_result"][i]["dst"].asString();
 #ifdef WIN32

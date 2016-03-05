@@ -30,3 +30,6 @@
 # Linux swap files
 *.swp
 *.swo
+
+# User config files
+*.pro.user
