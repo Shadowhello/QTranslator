@@ -38,7 +38,26 @@ void YoudaoTranslator::parseResult(std::string json)
     int error_code = _value["errorCode"].asInt();
     if(error_code != 0)
     {
-        youdaoSS << "Error!\nError code:" << error_code << "\n";
+        switch(error_code) {
+            case 20 :
+                youdaoSS << "要翻译的文本过长.\n";
+                break;
+            case 30 : 
+                youdaoSS << "无法进行有效的翻译.\n";
+                break;
+            case 40 : 
+                youdaoSS << "不支持的语言类型.\n";
+                break;
+            case 50 : 
+                youdaoSS << "无效的key.\n";
+                break;
+            case 60 : 
+                youdaoSS << "无词典结果，仅在获取词典结果生效.\n";
+                break;
+            default:
+                youdaoSS << "Error!\nError code:" << error_code << "\n";
+                break;
+        }
     }
     if(_value.isMember("basic"))
     {
